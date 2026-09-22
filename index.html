@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff8fb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="NISA">
+<title>NISA — Your life, your way</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff9fb;color:#211b25;font-family:Arial,sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:860px;min-height:100vh;margin:auto;background:#fffafd;padding-bottom:92px}
+header{height:66px;border-bottom:1px solid #eadfe5;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;background:#fffdfaee;backdrop-filter:blur(12px);z-index:5}
+.logo{font:700 29px Georgia,serif;position:relative}.logo:after{content:"";position:absolute;width:28px;height:5px;background:#d41463;border-radius:5px;left:0;bottom:-4px}
+.tabs{background:#f4eaf0;border-radius:25px;padding:4px}.tabs button{border:0;background:none;padding:8px 15px;border-radius:20px;color:#766b77;font-weight:700}.tabs .on{background:#ef3d88;color:#fff;box-shadow:0 4px 12px #ef3d8840}
+main{padding:20px 24px}.hero{background:#fde1ed;border-radius:30px;padding:24px 22px;display:flex;justify-content:space-between;align-items:center}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.05em;color:#c51660;margin:0 0 7px}.hero h1{font:700 35px/1.12 Georgia,serif;margin:0;max-width:560px}.muted{color:#776d76;font-size:14px}.spark{font-size:65px;color:#d72872}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.card{border:0;border-radius:29px;min-height:110px;padding:17px;text-align:left;box-shadow:0 7px 0 #2a202a17}.card b{display:block;font:700 32px Georgia,serif;margin-top:9px}.pink{background:#f58db9}.purple{background:#c1b4fa}.yellow{background:#ffd449}.green{background:#caf05d}.pill{background:#fff9d4;padding:5px 9px;border-radius:13px;font-size:11px;font-weight:800}
+.add{display:flex;gap:9px;margin:18px 0 28px}.add input{flex:1;border:1px solid #eadfe5;border-radius:28px;padding:14px 17px;outline:0;background:#fff}.add button,.plus{width:49px;height:49px;border:0;border-radius:50%;background:#211b25;color:#fff;font-size:28px}
+section{margin:28px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.sectionhead h2,.page h1{font:700 25px Georgia,serif;margin:0}.link{border:0;background:none;color:#c51660;font-weight:800}
+.task,.plan,.note,.friend,.track{background:#fff;border-radius:21px;margin:9px 0;padding:16px;box-shadow:0 7px 22px #301a2a0d}.task{display:flex;align-items:center;gap:12px}.task .dot{width:9px;height:9px;border-radius:50%;background:#ed3180}.task:nth-child(even) .dot{background:#2d81c6}.task .txt{flex:1;font-weight:600}.check{width:27px;height:27px;border:1px solid #28222a;border-radius:50%;display:grid;place-items:center}.done{opacity:.55}.done .txt{text-decoration:line-through}.done .check{background:#211b25;color:#fff}
+.plan{display:flex;gap:28px}.plan time{color:#d01861;font:bold 17px Georgia,serif}.note{width:100%;border:0;display:flex;align-items:center;gap:13px;text-align:left}.noteicon{width:44px;height:44px;border-radius:13px;background:#9bd0ff;display:grid;place-items:center;color:#2475ad;font:bold 18px Georgia,serif}.note b{margin-left:auto;font-size:24px}
+.view{min-height:70vh}.hide{display:none}.page{padding:12px 0 22px}.page h1{font-size:38px}.friend,.track{display:flex;align-items:center;gap:13px}.avatar,.album{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-weight:800}.avatar{background:#ffb2d0}.avatar.a{background:#9bd0ff}.avatar.s{background:#c6b9fa}.friend div:nth-child(2),.track div:nth-child(2){flex:1}.friend span,.track span{display:block;color:#80747e;font-size:13px;margin-top:3px}.friend>button{border:0;background:none;font-size:25px}.primary{border:0;background:#211b25;color:white;border-radius:24px;padding:13px 20px;font-weight:700;width:100%;margin-top:14px}
+textarea{width:100%;height:230px;border:1px solid #eadfe5;border-radius:20px;padding:16px;resize:vertical;outline:0}.week{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:15px}.week div{background:#fff;border-radius:16px;padding:13px 4px;text-align:center;box-shadow:0 5px 16px #301a2a0d;font-size:11px}.week span{display:block;color:#7b7079;margin-top:7px}.today{background:#fde1ed!important}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(860px,100%);height:78px;background:#fffafd;border-top:1px solid #eadfe5;display:flex;justify-content:space-around;align-items:center;z-index:5}.nav{border:0;background:none;color:#827680;display:grid;place-items:center;gap:3px;font-weight:700}.nav span{font-size:22px}.nav small{font-size:11px}.nav.active{color:#d41463}.plus{margin-top:-28px;box-shadow:0 8px 20px #211b2540}
+.toast{position:fixed;bottom:95px;left:50%;transform:translate(-50%,15px);background:#211b25;color:#fff;padding:10px 16px;border-radius:20px;font-size:13px;opacity:0;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:560px){main{padding:17px 15px}.hero h1{font-size:29px}.spark{font-size:52px}.card b{font-size:28px}header{padding:0 17px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo">NISA</div><div class="tabs"><button id="myBtn" class="on">My Life</button><button id="friendsBtn">Friends</button></div></header>
+<main>
+<div id="today" class="view">
+<div class="hero"><div><p class="eyebrow">TUESDAY 22 SEPTEMBER</p><h1>Welcome back, today is yours.</h1><p class="muted"><span id="count">2</span> tasks · 1 plan · <span id="focus">0</span> min focus</p></div><div class="spark">✦</div></div>
+<div class="grid">
+<button class="card pink" onclick="focusTime()"><span class="pill">FOCUS</span><b id="focusCard">0 min</b></button>
+<button class="card purple" onclick="show('friends')"><span class="pill">FRIENDS</span><b>3 plans</b></button>
+<button class="card yellow" onclick="toast('Music is ready ✦')"><span class="pill">MUSIC</span><b>Listen</b></button>
+<button class="card green" onclick="toast('Finish a task to reach your goal')"><span class="pill">GOALS</span><b id="goals">0 / 4</b></button>
+</div>
+<form class="add" onsubmit="addTask(event)"><input id="newTask" placeholder="Add something for today..." autocomplete="off"><button>+</button></form>
+<section><div class="sectionhead"><div><p class="eyebrow">YOUR TASKS</p><h2>Your day</h2></div><button class="link" onclick="clearDone()">Clear done</button></div><div id="tasks"></div></section>
+<section><div class="sectionhead"><div><p class="eyebrow">COMING UP</p><h2>Today's plans</h2></div></div>
+<div class="plan"><time>15:00</time><span>Study session, library</span></div><div class="plan"><time>18:30</time><span>Walk & catch up with Maya</span></div></section>
+<section><div class="sectionhead"><div><p class="eyebrow">NOTES</p><h2>Pick up where you left off</h2></div><button class="link" onclick="show('notes')">See all</button></div><button class="note" onclick="show('notes')"><span class="noteicon">H</span><span>HISTORY</span><b>›</b></button></section>
+</div>
+<div id="friends" class="view hide"><div class="page"><p class="eyebrow">YOUR PEOPLE</p><h1>Friends</h1><p class="muted">Make plans, stay close, keep it easy.</p></div>
+<div class="friend"><div class="avatar">M</div><div><b>Maya</b><span>Study session · 15:00</span></div><button>›</button></div><div class="friend"><div class="avatar a">A</div><div><b>Alex</b><span>Free today</span></div><button>›</button></div><div class="friend"><div class="avatar s">S</div><div><b>Sam</b><span>Planning a movie night</span></div><button>›</button></div><button class="primary" onclick="toast('Plan created ✦')">+ Make a plan</button></div>
+<div id="notes" class="view hide"><div class="page"><p class="eyebrow">NOTES</p><h1>Your space</h1><p class="muted">School notes, ideas and everything in between.</p></div><textarea id="notesBox" placeholder="Write something..."></textarea><button class="primary" onclick="saveNote()">Save note</button></div>
+<div id="planner" class="view hide"><div class="page"><p class="eyebrow">PLANNER</p><h1>This week</h1><p class="muted">A simple view of what's coming up.</p></div><div class="week"><div><b>MON</b><span>School</span></div><div class="today"><b>TUE</b><span>2 tasks</span></div><div><b>WED</b><span>Free</span></div><div><b>THU</b><span>Math test</span></div><div><b>FRI</b><span>Hangout</span></div></div><div class="plan"><time>15:00</time><span>Study session, library</span></div><div class="plan"><time>18:30</time><span>Walk & catch up with Maya</span></div></div>
+<div id="music" class="view hide"><div class="page"><p class="eyebrow">MUSIC</p><h1>Listen</h1><p class="muted">Set the mood for your day.</p></div><div class="track"><div class="album" style="background:#f58db9">✦</div><div><b>Focus flow</b><span>Chill · 42 min</span></div><button class="primary" style="width:auto;margin:0" onclick="toast('Playing Focus flow')">▶</button></div><div class="track"><div class="album" style="background:#ffd449">♪</div><div><b>Good mood</b><span>Feel good · 35 min</span></div><button class="primary" style="width:auto;margin:0" onclick="toast('Playing Good mood')">▶</button></div></div>
+</main>
+<nav class="bottom"><button class="nav active" onclick="show('today')"><span>☼</span><small>Today</small></button><button class="nav" onclick="show('notes')"><span>▤</span><small>Notes</small></button><button class="nav" onclick="show('planner')"><span>□</span><small>Planner</small></button><button class="plus" onclick="document.getElementById('newTask').focus();window.scrollTo({top:250,behavior:'smooth'})">+</button><button class="nav" onclick="show('friends')"><span>♧</span><small>Friends</small></button><button class="nav" onclick="show('music')"><span>♫</span><small>Music</small></button></nav>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+let tasks=JSON.parse(localStorage.nisaTasks||'null')||[{t:'Finish biology reading',d:false},{t:'Math homework, ch. 4',d:false}];
+let focus=+localStorage.nisaFocus||0;
+function save(){localStorage.nisaTasks=JSON.stringify(tasks);localStorage.nisaFocus=focus}
+function render(){let x=document.getElementById('tasks');x.innerHTML='';tasks.forEach((a,i)=>{let d=document.createElement('div');d.className='task '+(a.d?'done':'');d.innerHTML='<span class="dot"></span><span class="txt"></span><span class="check">'+(a.d?'✓':'')+'</span>';d.querySelector('.txt').textContent=a.t;d.onclick=()=>{a.d=!a.d;save();render()};x.appendChild(d)});let open=tasks.filter(a=>!a.d).length;document.getElementById('count').textContent=open;document.getElementById('focus').textContent=focus;document.getElementById('focusCard').textContent=focus+' min';document.getElementById('goals').textContent=tasks.filter(a=>a.d).length+' / 4'}
+function addTask(e){e.preventDefault();let i=document.getElementById('newTask'),t=i.value.trim();if(!t)return;tasks.unshift({t,d:false});i.value='';save();render();toast('Added to today ✦')}
+function clearDone(){tasks=tasks.filter(a=>!a.d);save();render();toast('Done tasks cleared')}
+function focusTime(){focus+=15;save();render();toast('+15 min focus ✦')}
+function saveNote(){localStorage.nisaNote=document.getElementById('notesBox').value;toast('Note saved')}
+function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.add('hide'));document.getElementById(id).classList.remove('hide');document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));window.scrollTo(0,0);if(id==='notes')document.getElementById('notesBox').value=localStorage.nisaNote||''}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove('show'),1700)}
+document.getElementById('myBtn').onclick=()=>show('today');document.getElementById('friendsBtn').onclick=()=>show('friends');render();
+</script>
+</body>
+</html>
